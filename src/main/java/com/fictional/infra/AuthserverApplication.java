@@ -40,11 +40,10 @@ public class AuthserverApplication extends WebMvcConfigurerAdapter {
         @Override
         public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
             clients.inMemory()
-                    .withClient("acme")
-                    .secret("acmesecret")
-                    .authorities("ROLE_USER")
-                    .authorizedGrantTypes("authorization_code", "refresh_token",
-                            "password").scopes("openid");
+            .withClient("acme")
+            .secret("acmesecret")
+            .authorizedGrantTypes("authorization_code", "refresh_token", "password")
+            .scopes("openid").autoApprove(true);
         }
     }
 
